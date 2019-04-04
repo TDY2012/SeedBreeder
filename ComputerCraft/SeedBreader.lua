@@ -53,6 +53,9 @@ lang_placingStick = "Placing sticks"
 lang_placingSeedsInAcv = "Placing seeds in Autonomous Activator"
 lang_placingSticksInAcv = "Placing sticks in Autonomous Activator"
 
+lang_itemCropStickName = "agricraft:cropstick"
+lang_itemHandRackName = "agricraft:handrake"
+
 
 CCSA = "Computer Controlled Seed Analyzer"
 TRSHC = "Trash Can"
@@ -268,7 +271,7 @@ function storeYeld()
   print("Storing yeld")
   if not compareItemInSlot(seed.name,slot.extra) then
     dropDownFromSlot(slot.extra,64)
-  elseif not compareItemInSlot("AgriCraft:cropsItem",slot.sticks2) then
+  elseif not compareItemInSlot(lang_itemCropStickName,slot.sticks2) then
     dropDownFromSlot(slot.sticks2,64)
   else
     dropDownFromSlot(slot.extra,64)
@@ -362,10 +365,10 @@ function fuel()
 end
 
 function tidySticks()
-  if compareItemInSlot("AgriCraft:cropsItem",slot.sticks1) then
+  if compareItemInSlot(lang_itemCropStickName,slot.sticks1) then
     return true
   else
-    if compareItemInSlot("AgriCraft:cropsItem",slot.sticks2) then
+    if compareItemInSlot(lang_itemCropStickName,slot.sticks2) then
       transferItem(slot.sticks2,slot.sticks1)
       return true
     end
@@ -396,7 +399,7 @@ function seeds()
   return 0
 end
 function rake()
-  if compareItemInSlot("AgriCraft:handRake",slot.rake) then
+  if compareItemInSlot(lang_itemHandRackName,slot.rake) then
     return true
   end
   noRake()
@@ -420,7 +423,7 @@ function noSticks()
     end
 end
 function noRake()
-  while not compareItemInSlot("AgriCraft:handRake",slot.rake) do
+  while not compareItemInSlot(lang_itemHandRackName,slot.rake) do
     resetScreen()
     print(lang_noRake)
     sleep(1)
